@@ -5,10 +5,30 @@
  */
 package sistemaMVC.model.dao;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import sistemaMVC.model.domain.Cliente;
+
 /**
  *
  * @author carlo
  */
-public class ClienteDao {
+
+public class ClienteDao{
     
+    private EntityManager em;
+
+    public ClienteDao(){
+
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("SistemaMVCPU"); 
+    em = emf.createEntityManager();
+
+    }
+ 
+    public void salvar(Cliente cliente){
+        em.getTransaction().begin();
+        em.persist(cliente);
+        em.getTransaction().commit();
+    }
 }

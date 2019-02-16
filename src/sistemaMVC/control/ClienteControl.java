@@ -5,6 +5,7 @@
  */
 package sistemaMVC.control;
 
+import sistemaMVC.model.dao.ClienteDao;
 import sistemaMVC.model.domain.Cliente;
 
 /**
@@ -14,8 +15,12 @@ import sistemaMVC.model.domain.Cliente;
 public class ClienteControl {
     
     private Cliente cliente;
+    private ClienteDao dao;
     
-    
+    public ClienteControl(){
+        novo();
+        dao = new ClienteDao();
+    }
     
 
     public Cliente getCliente() {
@@ -35,7 +40,7 @@ public class ClienteControl {
     }
 
     public void salvar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        dao.salvar(cliente);
     }
 
     public void pesquisar() {

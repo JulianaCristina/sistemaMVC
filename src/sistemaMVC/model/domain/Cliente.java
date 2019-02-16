@@ -5,12 +5,24 @@
  */
 package sistemaMVC.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author carlo
  */
+
+@Entity
+@Table(name="TB_CLIENTE")
 public class Cliente {
+    //mapeamento da classe cliente com o banco de dados
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)    
     private Integer codigo;
     
     private String nome;
